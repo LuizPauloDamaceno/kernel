@@ -57,6 +57,26 @@
 #include "mdss_mdp.h"
 #include "mdss_sync.h"
 
+extern struct mdss_dsi_ctrl_pdata *change_par_ctrl ;
+extern int change_par_buf;
+#ifdef CONFIG_PROJECT_VINCE
+extern int LCM_effect[4];
+#else
+extern int LCM_effect[3];
+#endif
+
+#if defined(CONFIG_WPONIT_ADJUST_FUN)
+extern uint32_t white_point_num_x;
+extern uint32_t white_point_num_y;
+extern uint32_t white_point_num_r;
+extern uint32_t white_point_num_g;
+extern uint32_t white_point_num_b;
+#endif
+
+#ifdef CONFIG_KLAPSE
+#include <linux/klapse.h>
+#endif
+
 #ifdef CONFIG_FB_MSM_TRIPLE_BUFFER
 #define MDSS_FB_NUM 3
 #else
@@ -307,6 +327,9 @@ static void mdss_fb_set_bl_brightness(struct led_classdev *led_cdev,
 							!mfd->bl_level)) {
 		mutex_lock(&mfd->bl_lock);
 		mdss_fb_set_backlight(mfd, bl_lvl);
+#ifdef CONFIG_KLAPSE
+                set_rgb_slider(bl_lvl);
+#endif
 		mutex_unlock(&mfd->bl_lock);
 	}
 	mfd->bl_level_usr = bl_lvl;

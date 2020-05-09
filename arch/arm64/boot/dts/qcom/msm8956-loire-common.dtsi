@@ -1267,11 +1267,11 @@
 
 
 &vfe0 {
-	max-clk-turbo = <460000000>;
+	max-clk-turbo = <466000000>;
 };
 
 &vfe1 {
-	max-clk-turbo = <460000000>;
+	max-clk-turbo = <466000000>;
 };
 
 &spmi_bus {

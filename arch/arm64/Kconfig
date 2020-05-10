@@ -658,8 +658,8 @@ config HOTPLUG_CPU
 	  can be controlled through /sys/devices/system/cpu.
 
 source kernel/Kconfig.preempt
-config ASMP
-	bool "Multi-core automatic hotplug support"
+config CLUSTERPLUG
+	bool "Multi-cluster automatic hotplug support"
 	depends on SMP && HOTPLUG_CPU
 	default n
 	help

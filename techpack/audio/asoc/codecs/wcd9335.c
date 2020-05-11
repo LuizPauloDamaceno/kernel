@@ -98,7 +98,7 @@
 	(TASHA_CPE_SS_ERR_STATUS_WDOG_BITE | \
 	 TASHA_CPE_SS_ERR_STATUS_MEM_ACCESS)
 
-#define SLIM_BW_CLK_GEAR_9 6200000
+#define SLIM_BW_CLK_GEAR_10 24600000
 #define SLIM_BW_CLK_GEAR_8 3600000
 #define SLIM_BW_UNVOTE 0
 
@@ -143,7 +143,7 @@
 #define WCD9335_DEC_PWR_LVL_DF 0x00
 #define WCD9335_STRING_LEN 100
 
-#define CALCULATE_VOUT_D(req_mv) (((req_mv - 600) * 10) / 25)
+#define CALCULATE_VOUT_D(req_mv) (((req_mv - 375) * 10) / 25)
 
 static int cpe_debug_mode;
 
@@ -173,8 +173,8 @@ enum {
 };
 
 enum tasha_sido_voltage {
-	SIDO_VOLTAGE_SVS_MV = 925,
-	SIDO_VOLTAGE_NOMINAL_MV = 1075,
+	SIDO_VOLTAGE_SVS_MV = 900,
+	SIDO_VOLTAGE_NOMINAL_MV = 1125,
 };
 
 static enum codec_variant codec_ver;
@@ -13331,7 +13331,7 @@ static int tasha_codec_vote_max_bw(struct snd_soc_codec *codec,
 		tasha->ref_count++;
 		if (tasha->ref_count == 1) {
 #if !defined(CONFIG_ARCH_SONY_LOIRE) || defined(CONFIG_MACH_SONY_BLANC)
-			bw_ops = SLIM_BW_CLK_GEAR_9;
+			bw_ops = SLIM_BW_CLK_GEAR_10;
 #else
 			bw_ops = SLIM_BW_CLK_GEAR_8;
 #endif

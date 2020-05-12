@@ -385,7 +385,7 @@
 			compatible = "qcom,spm-regulator";
 			reg = <0x1700 0x100>;
 			regulator-name = "pm8004_s2";
-			qcom,init-quiet-mode = <1>;
+			qcom,init-quiet-mode = <2>;
 			qcom,hpm-enable = <1>;
 			regulator-min-microvolt = <500000>;
 			regulator-max-microvolt = <1165000>;
@@ -398,7 +398,7 @@
 			reg = <0x2000 0x100>;
 			regulator-name = "pm8004_s5";
 			qcom,init-quiet-mode = <1>;
-			qcom,auto-mode-enable = <0>;
+			qcom,auto-mode-enable = <2>;
 			qcom,hpm-enable = <1>;
 			regulator-min-microvolt = <950000>;
 			regulator-max-microvolt = <1165000>;
@@ -481,10 +481,10 @@
 		qcom,cpr-quot-adjust-scaling-factor-max = <0 1400 1400>;
 		qcom,cpr-corner-frequency-map =
 				<1   400000000>,
-				<2   691200000>,
-				<3   806400000>,
+				<2   600000000>,
+				<3   800000000>,
 				<4  1017600000>,
-				<5  1190400000>,
+				<5  1200000000>,
 				<6  1305600000>,
 				<7  1382400000>,
 				<8  1401600000>,
@@ -505,7 +505,7 @@
 			<0  0   0>;
 		qcom,cpr-voltage-floor-override =
 			<(-1) (-1) 795000 820000 860000 870000
-			960000 980000 1000000 1000000 1000000>;
+			960000 980000 1000000 1015000 1000000>;
 		qcom,cpr-enable;
 	};
 
@@ -580,8 +580,8 @@
 		qcom,cpr-quot-adjust-scaling-factor-max = <0 1400 1400>;
 		qcom,cpr-corner-frequency-map =
 				<1   400000000>,
-				<2   883200000>,
-				<3  1190400000>,
+				<2   940800000>,
+				<3  1200000000>,
 				<4  1382400000>,
 				<5  1612800000>,
 				<6  1747200000>,
@@ -603,8 +603,8 @@
 			<0 (-37) 0>, /* NOM - 15mv */
 			<0    0  0>;
 		qcom,cpr-voltage-floor-override =
-			<(-1) (-1) 790000 790000 820000 850000
-			940000 1000000 1020000 1040000 1070000>;
+			<(-1) (-1) 790000 815000 840000 870000
+			980000 1000000 1025000 1055000 1075000>;
 		qcom,cpr-enable;
 	};
 

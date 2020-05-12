@@ -1165,18 +1165,18 @@
 		compatible = "qcom,msm-thermal";
 		qcom,sensor-id = <9>;
 		qcom,poll-ms = <250>;
-		qcom,limit-temp = <60>;
+		qcom,limit-temp = <65>;
 		qcom,temp-hysteresis = <10>;
 		qcom,freq-step = <2>;
-		qcom,core-limit-temp = <80>;
+		qcom,core-limit-temp = <75>;
 		qcom,core-temp-hysteresis = <10>;
 		qcom,mitigation-profile-enable;
-		qcom,hotplug-temp = <105>;
+		qcom,hotplug-temp = <82>;
 		qcom,hotplug-temp-hysteresis = <25>;
-		qcom,freq-mitigation-temp = <105>;
+		qcom,freq-mitigation-temp = <85>;
 		qcom,freq-mitigation-temp-hysteresis = <20>;
 		qcom,freq-mitigation-value = <400000>;
-		qcom,therm-reset-temp = <115>;
+		qcom,therm-reset-temp = <100>;
 		qcom,online-hotplug-core;
 		qcom,synchronous-cluster-id = <0 1>;
 		qcom,synchronous-cluster-map = <0 4 &CPU0 &CPU1 &CPU2 &CPU3>,
@@ -1185,18 +1185,19 @@
 		qcom,disable-gfx-phase-ctrl;
 		qcom,disable-psm;
 		qcom,disable-ocr;
-		qcom,mx-restriction-temp = <15>;
-		qcom,mx-restriction-temp-hysteresis = <2>;
-		qcom,mx-retention-min = <RPM_SMD_REGULATOR_LEVEL_TURBO>;
+		qcom,mx-restriction-temp = <73>;
+		qcom,mx-restriction-temp-hysteresis = <3>;
+		qcom,mx-retention-min = <RPM_SMD_REGULATOR_LEVEL_NOM>;
 		vdd-mx-supply = <&pm8950_s6_floor_level>;
-		qcom,vdd-restriction-temp = <5>;
-		qcom,vdd-restriction-temp-hysteresis = <10>;
+		qcom,vdd-restriction-temp = <65>;
+		qcom,vdd-restriction-temp-hysteresis = <5>;
 		vdd-dig-supply = <&pm8950_s2_floor_level>;
 		vdd-gfx-supply = <&gfx_vreg_corner>;
 
 		qcom,vdd-dig-rstr {
 			qcom,vdd-rstr-reg = "vdd-dig";
 			qcom,levels = <RPM_SMD_REGULATOR_LEVEL_NOM
+					RPM_SMD_REGULATOR_LEVEL_NOM_PLUS
 					RPM_SMD_REGULATOR_LEVEL_TURBO
 					RPM_SMD_REGULATOR_LEVEL_TURBO>;
 			qcom,min-level = <RPM_SMD_REGULATOR_LEVEL_RETENTION>;
@@ -1204,13 +1205,13 @@
 
 		qcom,vdd-gfx-rstr {
 			qcom,vdd-rstr-reg = "vdd-gfx";
-			qcom,levels = <6 9 9>; /* Nominal, Turbo, Turbo */
+			qcom,levels = <6 7 8 9>; /* Nominal, Nominal Plus, Turbo, Turbo */
 			qcom,min-level = <1>; /* No Request */
 		};
 
 		msm_thermal_freq: qcom,vdd-apps-rstr {
 			qcom,vdd-rstr-reg = "vdd-apps";
-			qcom,levels = <1017600>;
+			qcom,levels = <1200000>;
 			qcom,freq-req;
 		};
 	};
@@ -1223,12 +1224,12 @@
 		qcom,bcl-hotplug-list = <&CPU4 &CPU5>;
 		qcom,bcl-soc-hotplug-list = <&CPU4 &CPU5>;
 		qcom,ibat-monitor {
-			qcom,high-threshold-uamp = <4200000>;
-			qcom,low-threshold-uamp = <3400000>;
-			qcom,mitigation-freq-khz = <1382400>;
-			qcom,vph-high-threshold-uv = <3500000>;
-			qcom,vph-low-threshold-uv = <3200000>;
-			qcom,soc-low-threshold = <10>;
+			qcom,high-threshold-uamp = <1500000>;
+			qcom,low-threshold-uamp = <1200000>;
+			qcom,mitigation-freq-khz = <1200000>;
+			qcom,vph-high-threshold-uv = <3600000>;
+			qcom,vph-low-threshold-uv = <3400000>;
+			qcom,soc-low-threshold = <5>;
 			qcom,thermal-handle = <&msm_thermal_freq>;
 		};
 	};

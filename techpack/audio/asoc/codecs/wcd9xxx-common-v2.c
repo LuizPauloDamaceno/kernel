@@ -33,6 +33,7 @@ enum {
 	DAC_GAIN_M0P4DB,
 	DAC_GAIN_M0P6DB,
 	DAC_GAIN_M0P8DB,
+	DAC_GAIN_M1P2DB,
 };
 
 enum {
@@ -53,6 +54,7 @@ enum {
 	DELTA_I_90MA,
 	DELTA_I_100MA,
 	DELTA_I_130MA,
+	DELTA_I_150MA,
 };
 
 struct wcd_imped_val {
@@ -607,7 +609,7 @@ static void wcd_clsh_set_hph_mode(struct snd_soc_codec *codec,
 	u8 val = 0;
 	u8 gain = 0;
 	u8 res_val = VREF_FILT_R_0OHM;
-	u8 ipeak = DELTA_I_130MA;
+	u8 ipeak = DELTA_I_150MA;
 
 	struct wcd9xxx *wcd9xxx = dev_get_drvdata(codec->dev->parent);
 
@@ -616,28 +618,28 @@ static void wcd_clsh_set_hph_mode(struct snd_soc_codec *codec,
 		res_val = VREF_FILT_R_50KOHM;
 		val = 0x00;
 		gain = DAC_GAIN_M0P4DB;
-		ipeak = DELTA_I_90MA;
+		ipeak = DELTA_I_100MA;
 		break;
 	case CLS_AB:
 		val = 0x00;
 		gain = DAC_GAIN_0P2DB;
-		ipeak = DELTA_I_70MA;
+		ipeak = DELTA_I_90MA;
 		break;
 	case CLS_AB_HIFI:
 		val = 0x08;
 		break;
 	case CLS_H_HIFI:
 		val = 0x08;
-		gain = DAC_GAIN_M0P6DB;
-		ipeak = DELTA_I_100MA;
+		gain = DAC_GAIN_M0P8DB;
+		ipeak = DELTA_I_130MA;
 		break;
 	case CLS_H_LOHIFI:
 		val = 0x00;
 		if ((IS_CODEC_TYPE(wcd9xxx, WCD9335)) ||
 		    (IS_CODEC_TYPE(wcd9xxx, WCD9326))) {
 			val = 0x08;
-			gain = DAC_GAIN_M0P8DB;
-			ipeak = DELTA_I_130MA;
+			gain = DAC_GAIN_M1P2DB;
+			ipeak = DELTA_I_150MA;
 		}
 		break;
 	case CLS_H_ULP:

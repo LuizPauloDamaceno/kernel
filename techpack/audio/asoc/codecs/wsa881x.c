@@ -46,7 +46,7 @@
 #endif
 
 enum {
-	G_18DB = 0,
+	G_18DB,
 	G_16P5DB,
 	G_15DB,
 	G_13P5DB,
@@ -57,7 +57,7 @@ enum {
 	G_6DB,
 	G_4P5DB,
 	G_3DB,
-	G_1P5DB,
+	G_1P5DB = 0,
 	G_0DB,
 };
 

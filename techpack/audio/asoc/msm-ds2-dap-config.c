@@ -53,13 +53,13 @@ enum {
 };
 
 enum {
-	DAP_SOFT_BYPASS = 0,
-	DAP_HARD_BYPASS,
+	DAP_SOFT_BYPASS,
+	DAP_HARD_BYPASS = 0,
 };
 
 enum {
-	MODULE_DISABLE = 0,
-	MODULE_ENABLE,
+	MODULE_DISABLE,
+	MODULE_ENABLE = 0,
 };
 /* dolby param ids to/from dsp */
 static uint32_t	ds2_dap_params_id[MAX_DS2_PARAMS] = {

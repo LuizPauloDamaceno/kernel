@@ -397,8 +397,8 @@
 			compatible = "qcom,qpnp-regulator";
 			reg = <0x2000 0x100>;
 			regulator-name = "pm8004_s5";
-			qcom,init-quiet-mode = <1>;
-			qcom,auto-mode-enable = <2>;
+			qcom,init-quiet-mode = <2>;
+			qcom,auto-mode-enable = <0>;
 			qcom,hpm-enable = <1>;
 			regulator-min-microvolt = <950000>;
 			regulator-max-microvolt = <1165000>;
@@ -504,8 +504,8 @@
 			<0 37 150>, /* NOM + 15mv, TURBO + 60mv */
 			<0  0   0>;
 		qcom,cpr-voltage-floor-override =
-			<(-1) (-1) 795000 820000 860000 870000
-			960000 980000 1000000 1015000 1000000>;
+			<(-1) (-1) 795000 820000 840000 860000
+			960000 970000 990000 1015000 1000000>;
 		qcom,cpr-enable;
 	};
 
@@ -587,7 +587,7 @@
 				<6  1747200000>,
 				<7  1804800000>,
 				<8  1900800000>,
-				<9  2016000000>;
+				<9  2304000000>;
 		qcom,cpr-speed-bin-max-corners =
 				<0 0 2 4 9>,
 				<1 0 2 4 9>;
@@ -603,8 +603,8 @@
 			<0 (-37) 0>, /* NOM - 15mv */
 			<0    0  0>;
 		qcom,cpr-voltage-floor-override =
-			<(-1) (-1) 790000 815000 840000 870000
-			980000 1000000 1025000 1055000 1075000>;
+			<(-1) (-1) 790000 810000 830000 860000
+			960000 970000 1025000 1065000 1115000>;
 		qcom,cpr-enable;
 	};
 
@@ -641,7 +641,7 @@
 				1050000 1110000 1165000 1165000>;
 		qcom,cpr-voltage-floor =
 				<755000 755000 760000 800000 840000
-				860000 930000 950000 960000>;
+				860000 940000 950000 1000000>;
 		vdd-gfx-supply = <&pm8004_s5>;
 
 		vdd-mx-supply = <&pm8950_s6_level_ao>;

@@ -36,20 +36,20 @@
 		thermal-governor = "user_space";
 		trips {
 			c0_crit: c0-shutdown {
-				temperature = <91000>;
+				temperature = <88000>;
 				hysteresis = <1000>;
 				type = "critical";
 			};
 
 			c0_trip1: c0-trip1 {
-				temperature = <78000>;
+				temperature = <82000>;
 				hysteresis = <3000>;
 				type = "passive";
 				
 			};
 
 			c0_trip2: c0-trip2 {
-				temperature = <75000>;
+				temperature = <80000>;
 				hysteresis = <4000>;
 				type = "passive";
 				
@@ -123,14 +123,14 @@
 			};
 
 			c1_trip1: c1-trip1 {
-				temperature = <78000>;
+				temperature = <82000>;
 				hysteresis = <3000>;
 				type = "passive";
 				
 			};
 
 			c1_trip2: c1-trip2 {
-				temperature = <75000>;
+				temperature = <80000>;
 				hysteresis = <4000>;
 				type = "passive";
 				
@@ -214,7 +214,7 @@
 		thermal-governor = "step_wise";
 		trips {
 			gpu_trip1: gpu-trip1 {
-				temperature = <80000>;
+				temperature = <82000>;
 				hysteresis = <1000>;
 				type = "passive";
 			};
@@ -334,47 +334,47 @@
 			};
 
 			cpu_ct_c0_trip0: cpu-ct-c0-trip0 {
-				temperature = <55000>;
+				temperature = <59000>;
 				hysteresis = <2000>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip1: cpu-ct-c0-trip1 {
-				temperature = <52500>;
+				temperature = <58500>;
 				hysteresis = <300>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip2: cpu-ct-c0-trip2 {
-				temperature = <51800>;
+				temperature = <57800>;
 				hysteresis = <200>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip3: cpu-ct-c0-trip3 {
-				temperature = <51200>;
+				temperature = <56200>;
 				hysteresis = <200>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip4: cpu-ct-c0-trip4 {
-				temperature = <51000>;
+				temperature = <55000>;
 				hysteresis = <100>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip5: cpu-ct-c0-trip5 {
-				temperature = <50800>;
+				temperature = <54800>;
 				hysteresis = <300>;
 				type = "passive";
 			};
 			cpu_ct_c1_trip0: cpu-ct-c1-trip0 {
-				temperature = <51000>;
+				temperature = <53000>;
 				hysteresis = <1000>;
 				type = "passive";
 			};
 			cpu_ct_c1_trip1: cpu-ct-c1-trip1 {
-				temperature = <50000>;
+				temperature = <52000>;
 				hysteresis = <300>;
 				type = "passive";
 			};
 			cpu_ct_c1_trip2: cpu-ct-c1-trip2 {
-				temperature = <48000>;
+				temperature = <50500>;
 				hysteresis = <1000>;
 				type = "passive";
 			};
@@ -412,12 +412,12 @@
 
 
 			modem_trip0: modem-trip0 {
-				temperature = <47000>;
+				temperature = <50000>;
 				hysteresis = <2000>;
 				type = "passive";
 			};
 			modem_trip1: modem-trip1 {
-				temperature = <51000>;
+				temperature = <52000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};

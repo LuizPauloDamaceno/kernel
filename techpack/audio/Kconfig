@@ -117,3 +117,6 @@ config SND_SOC_MSM8996
 	tristate "SND_SOC_MSM8996"
 config SND_SOC_MSM8998
 	tristate "SND_SOC_MSM8998"
+	
+config SOUND_CONTROL
+	bool "Sound control for wcd9335"

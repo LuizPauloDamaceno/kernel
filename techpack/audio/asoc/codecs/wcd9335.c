@@ -7821,7 +7821,7 @@ static int tasha_rx_hph_mode_put(struct snd_kcontrol *kcontrol,
 	if (mode_val == 0) {
 		dev_warn(codec->dev, "%s:Invalid HPH Mode, default to Cls-H HiFi\n",
 			__func__);
-		mode_val = CLS_H_HIFI;
+		mode_val = CLS_H_LOHIFI;
 	}
 	tasha->hph_mode = mode_val;
 	return 0;
@@ -13621,10 +13621,10 @@ static ssize_t headphone_gain_store(struct kobject *kobj,
 
 	sscanf(buf, "%d %d", &input_l, &input_r);
 
-	if (input_l < -84 || input_l > 20)
+	if (input_l < -84 || input_l > 8)
 		input_l = 0;
 
-	if (input_r < -84 || input_r > 20)
+	if (input_r < -84 || input_r > 8)
 		input_r = 0;
 
 	snd_soc_write(sound_control_codec_ptr, WCD9335_CDC_RX1_RX_VOL_MIX_CTL, input_l);
@@ -13658,10 +13658,10 @@ static ssize_t headphone_pa_gain_store(struct kobject *kobj,
 
 	sscanf(buf, "%d %d", &input_l, &input_r);
 
-	if (input_l < 1 || input_l > 20)
+	if (input_l < 1 || input_l > 8)
 		input_l = 1;
 
-	if (input_r < 1 || input_r > 20)
+	if (input_r < 1 || input_r > 8)
 		input_r = 1;
 
 	snd_soc_update_bits(sound_control_codec_ptr, WCD9335_HPH_L_EN, 0x1f, input_l);
@@ -13692,7 +13692,7 @@ static ssize_t speaker_gain_store(struct kobject *kobj,
 
 	sscanf(buf, "%d", &input);
 
-	if (input < -10 || input > 20)
+	if (input < -10 || input > 5)
 		input = 0;
 
 	snd_soc_write(sound_control_codec_ptr, WCD9335_CDC_RX7_RX_VOL_CTL, input);
@@ -13763,7 +13763,7 @@ static int tasha_codec_probe(struct snd_soc_codec *codec)
 	/* Class-H Init*/
 	wcd_clsh_init(&tasha->clsh_d);
 	/* Default HPH Mode to Class-H HiFi */
-	tasha->hph_mode = CLS_H_HIFI;
+	tasha->hph_mode = CLS_H_LOHIFI;
 
 	tasha->codec = codec;
 	for (i = 0; i < COMPANDER_MAX; i++)

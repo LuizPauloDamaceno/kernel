@@ -59,7 +59,7 @@
 &qpnp_smbcharger {
 	qcom,fastchg-current-ma = <2500>;
 	somc,usb-9v-current-max = <2000>;
-	qcom,float-voltage-comp = <0x05>;
+	qcom,float-voltage-comp = <0x14>;
 	somc,fastchg-warm-current-ma = <400>;
 	somc,fastchg-cool-current-ma = <250>;
 	somc,thermal-engine-fastchg-current = <2500 2400 2300 2100 2000 1800 1600 1500 1200 1000 900 700 500 300 300>;

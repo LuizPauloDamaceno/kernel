@@ -57,8 +57,8 @@ enum {
 	G_6DB,
 	G_4P5DB,
 	G_3DB,
-	G_1P5DB = 0,
-	G_0DB,
+	G_1P5DB,
+	G_0DB = 0,
 };
 
 enum {
@@ -1089,18 +1089,18 @@ static void wsa881x_init(struct snd_soc_codec *codec)
 	if (snd_soc_read(codec, WSA881X_OTP_REG_0))
 		snd_soc_update_bits(codec, WSA881X_BOOST_PRESET_OUT1,
 #if defined(CONFIG_ARCH_SONY_LOIRE) || defined(CONFIG_ARCH_SONY_TONE)
-				    0xF0, 0x30);
+				    0xF0, 0x64);
 #elif defined(CONFIG_ARCH_SONY_TAMA)
 				    0xF0, 0x7F);
 #else
 				    0xF0, 0x70);
 #endif
 	snd_soc_update_bits(codec, WSA881X_BOOST_PRESET_OUT2,
-			    0xF0, 0x30);
+			    0xF0, 0x64);
 	snd_soc_update_bits(codec, WSA881X_SPKR_DRV_EN, 0x08, 0x08);
 	snd_soc_update_bits(codec, WSA881X_BOOST_CURRENT_LIMIT,
 			    0x0F, 0x08);
-	snd_soc_update_bits(codec, WSA881X_SPKR_OCP_CTL, 0x30, 0x30);
+	snd_soc_update_bits(codec, WSA881X_SPKR_OCP_CTL, 0x64, 0x64);
 	snd_soc_update_bits(codec, WSA881X_SPKR_OCP_CTL, 0x0C, 0x00);
 	snd_soc_update_bits(codec, WSA881X_OTP_REG_28, 0x3F, 0x3A);
 	snd_soc_update_bits(codec, WSA881X_BONGO_RESRV_REG1,

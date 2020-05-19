@@ -987,7 +987,7 @@
 	qcom,cool-bat-decidegc = <100>;
 	qcom,cold-bat-decidegc = <50>;
 	qcom,cl-max-increment-deciperc = <0>;
-	qcom,cl-max-decrement-deciperc = <20>;
+	qcom,cl-max-decrement-deciperc = <5>;
 	qcom,cl-max-start-capacity = <40>;
 	qcom,hold-soc-while-full;
 	qcom,resume-soc-raw = <0xF3>;
@@ -998,7 +998,7 @@
 	qcom,fg-cutoff-voltage-mv = <3200>;
 	qcom,vbat-estimate-diff-mv = <200>;
 	qcom,cl-vbat-est-thr-uv = <300000>;
-	qcom,fg-cc-cv-threshold-mv = <4290>;
+	qcom,fg-cc-cv-threshold-mv = <4295>;
 };
 
 &qpnp_smbcharger {

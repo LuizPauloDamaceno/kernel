@@ -1328,7 +1328,7 @@ static struct notifier_block clock_panic_notifier = {
 };
 
 static const unsigned long cci_boot_rate = 614400000;
-static const unsigned long a53ss_boot_rate = 1401600000;
+static const unsigned long a53ss_boot_rate = 1440000000;
 static const unsigned long a72ss_boot_rate = 1747200000;
 static int clock_cpu_probe(struct platform_device *pdev)
 {

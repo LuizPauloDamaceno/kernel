@@ -55,7 +55,7 @@
 
 	chosen {
 		stdout-path = "serial0";
-		bootargs = "sched_enable_hmp=1";
+		bootargs = "boot_cpus=0,1,2,3,4,5 sched_enable_hmp=1 sched_enable_power_aware=1 sched_downmigrate=60 sched_upmigrate=82 sched_restrict_cluster_spill=0 sched_boost=1";
 	};
 
 	psci {

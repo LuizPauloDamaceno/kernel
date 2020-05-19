@@ -143,7 +143,7 @@
 #define WCD9335_DEC_PWR_LVL_DF 0x00
 #define WCD9335_STRING_LEN 100
 
-#define CALCULATE_VOUT_D(req_mv) (((req_mv - 250) * 10) / 25)
+#define CALCULATE_VOUT_D(req_mv) (((req_mv - 200) * 10) / 25)
 
 static int cpe_debug_mode;
 
@@ -173,8 +173,8 @@ enum {
 };
 
 enum tasha_sido_voltage {
-	SIDO_VOLTAGE_SVS_MV = 975,
-	SIDO_VOLTAGE_NOMINAL_MV = 1075,
+	SIDO_VOLTAGE_SVS_MV = 1000,
+	SIDO_VOLTAGE_NOMINAL_MV = 1100,
 };
 
 static enum codec_variant codec_ver;
@@ -9196,12 +9196,12 @@ static const struct snd_kcontrol_new tasha_analog_gain_controls[] = {
 
 #if !defined(CONFIG_ARCH_SONY_LOIRE) || defined(CONFIG_MACH_SONY_BLANC)
 	SOC_SINGLE_TLV("LINEOUT1 Volume", WCD9335_DIFF_LO_LO1_COMPANDER,
-			3, 12, 1, line_gain),
+			3, 10, 1, line_gain),
 	SOC_SINGLE_TLV("LINEOUT2 Volume", WCD9335_DIFF_LO_LO2_COMPANDER,
-			3, 12, 1, line_gain),
-	SOC_SINGLE_TLV("LINEOUT3 Volume", WCD9335_SE_LO_LO3_GAIN, 0, 16, 1,
+			3, 10, 1, line_gain),
+	SOC_SINGLE_TLV("LINEOUT3 Volume", WCD9335_SE_LO_LO3_GAIN, 0, 14, 1,
 			line_gain),
-	SOC_SINGLE_TLV("LINEOUT4 Volume", WCD9335_SE_LO_LO4_GAIN, 0, 16, 1,
+	SOC_SINGLE_TLV("LINEOUT4 Volume", WCD9335_SE_LO_LO4_GAIN, 0, 14, 1,
 			line_gain),
 #endif
 	SOC_SINGLE_TLV("ADC1 Volume", WCD9335_ANA_AMIC1, 0, 20, 0,
@@ -13621,10 +13621,10 @@ static ssize_t headphone_gain_store(struct kobject *kobj,
 
 	sscanf(buf, "%d %d", &input_l, &input_r);
 
-	if (input_l < -84 || input_l > 8)
+	if (input_l < -84 || input_l > 6)
 		input_l = 0;
 
-	if (input_r < -84 || input_r > 8)
+	if (input_r < -84 || input_r > 6)
 		input_r = 0;
 
 	snd_soc_write(sound_control_codec_ptr, WCD9335_CDC_RX1_RX_VOL_MIX_CTL, input_l);
@@ -13658,10 +13658,10 @@ static ssize_t headphone_pa_gain_store(struct kobject *kobj,
 
 	sscanf(buf, "%d %d", &input_l, &input_r);
 
-	if (input_l < 1 || input_l > 8)
+	if (input_l < 1 || input_l > 6)
 		input_l = 1;
 
-	if (input_r < 1 || input_r > 8)
+	if (input_r < 1 || input_r > 6)
 		input_r = 1;
 
 	snd_soc_update_bits(sound_control_codec_ptr, WCD9335_HPH_L_EN, 0x1f, input_l);
@@ -13678,43 +13678,9 @@ static struct kobj_attribute headphone_pa_gain_attribute =
 		headphone_pa_gain_show,
 		headphone_pa_gain_store);
 
-static ssize_t speaker_gain_show(struct kobject *kobj,
-		struct kobj_attribute *attr, char *buf)
-{
-	return snprintf(buf, PAGE_SIZE, "%d\n",
-		snd_soc_read(sound_control_codec_ptr, WCD9335_CDC_RX7_RX_VOL_CTL));
-}
-
-static ssize_t speaker_gain_store(struct kobject *kobj,
-		struct kobj_attribute *attr, const char *buf, size_t count)
-{
-	int input;
-
-	sscanf(buf, "%d", &input);
-
-	if (input < -10 || input > 5)
-		input = 0;
-
-	snd_soc_write(sound_control_codec_ptr, WCD9335_CDC_RX7_RX_VOL_CTL, input);
-	snd_soc_write(sound_control_codec_ptr, WCD9335_CDC_RX7_RX_VOL_MIX_CTL, input);
-	
-	//Mod for suzu stereo speakers
-	
-	snd_soc_write(sound_control_codec_ptr, WCD9335_CDC_RX8_RX_VOL_CTL, input);
-	snd_soc_write(sound_control_codec_ptr, WCD9335_CDC_RX8_RX_VOL_MIX_CTL, input);
-
-	return count;
-}
-
-static struct kobj_attribute speaker_gain_attribute =
-	__ATTR(speaker_gain, 0664,
-		speaker_gain_show,
-		speaker_gain_store);
-
 static struct attribute *sound_control_attrs[] = {
 		&headphone_gain_attribute.attr,
 		&headphone_pa_gain_attribute.attr,
-		&speaker_gain_attribute.attr,
 		NULL,
 };
 

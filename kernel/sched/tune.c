@@ -967,8 +967,7 @@ schedtune_boostgroup_init(struct schedtune *st)
 #endif // CONFIG_DYNAMIC_STUNE_BOOST
 
 	/* Keep track of allocated boost groups */
-	allocated_group[idx] = st;
-	st->idx = idx;
+	return 0;
 }
 
 static struct cgroup_subsys_state *
@@ -1028,7 +1027,6 @@ schedtune_boostgroup_release(struct schedtune *st)
 	/* Reset per CPUs boost group support */
 	for_each_possible_cpu(cpu) {
 		bg = &per_cpu(cpu_boost_groups, cpu);
-		bg->group[st->idx].valid = false;
 		bg->group[st->idx].boost = 0;
 	}
 

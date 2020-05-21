@@ -52,7 +52,7 @@
 
 		qcom,initial-pwrlevel = <5>;
 
-		qcom,idle-timeout = <80>; //msecs
+		qcom,idle-timeout = <64>; //msecs
 		qcom,deep-nap-timeout = <100>; //msecs
 		qcom,strtstp-sleepwake;
 
@@ -143,7 +143,7 @@
 			/* TURBO */
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
-				qcom,gpu-freq = <725000000>;
+				qcom,gpu-freq = <600000000>;
 				qcom,bus-freq = <10>;
 				qcom,bus-min = <10>;
 				qcom,bus-max = <10>;

@@ -55,7 +55,7 @@
 
 	chosen {
 		stdout-path = "serial0";
-		bootargs = "boot_cpus=0,1,2,3,4,5 sched_enable_hmp=1 sched_enable_power_aware=1 sched_downmigrate=60 sched_upmigrate=82 sched_restrict_cluster_spill=0 sched_boost=1";
+		bootargs = "boot_cpus=0,1,2,3,4,5 sched_enable_hmp=1 sched_enable_power_aware=1 sched_downmigrate=75 sched_upmigrate=92 sched_restrict_cluster_spill=0 sched_boost=1";
 	};
 
 	psci {
@@ -712,7 +712,8 @@
 			<  5126 /*  336.0 MHz */ >,	/* NOM  */
 			<  5712 /*  374.4 MHz */ >,
 			<  6152 /*  403.2 MHz */ >,	/* TURBO */
-			<  7104 /*  465.6 MHz */ >;	/* STURBO */
+			<  7104 /*  465.6 MHz */ >,	/* STURBO */
+			<  7812  >;
 	};
 
 	mincpubw: qcom,mincpubw {
@@ -729,7 +730,8 @@
 			<  5126 /*  336.0 MHz */ >,	/* NOM  */
 			<  5712 /*  374.4 MHz */ >,
 			<  6152 /*  403.2 MHz */ >,	/* TURBO */
-			<  7104 /*  465.6 MHz */ >;	/* STURBO */
+			<  7104 /*  465.6 MHz */ >,	/* STURBO */
+			<  7812  >;
 	};
 
 	qcom,cpu-bwmon@408000 {
@@ -756,7 +758,8 @@
 			<  5126 /*  336.0 MHz */ >,	/* NOM  */
 			<  5712 /*  374.4 MHz */ >,
 			<  6152 /*  403.2 MHz */ >,	/* TURBO */
-			<  7104 /*  465.6 MHz */ >;	/* STURBO */
+			<  7104 /*  465.6 MHz */ >,	/* STURBO */
+			<  7812  >;
 	};
 
 	memlat_cpu4: qcom,memlat-cpu4 {
@@ -774,7 +777,8 @@
 			<  5126 /*  336.0 MHz */ >,	/* NOM  */
 			<  5712 /*  374.4 MHz */ >,
 			<  6152 /*  403.2 MHz */ >,	/* TURBO */
-			<  7104 /*  465.6 MHz */ >;	/* STURBO */
+			<  7104 /*  465.6 MHz */ >,	/* STURBO */
+			<  7812  >;
 	};
 
 	qcom,arm-memlat-mon-0 {
@@ -786,7 +790,7 @@
 			<  800000  4101 >,
 			< 1017600  5712 >,
 			< 1200000  6152 >,
-			< 1440000  7104 >;
+			< 1440000  7812 >;
 	};
 
 	qcom,arm-memlat-mon-4 {
@@ -798,7 +802,7 @@
 			< 1200000  4101 >,
 			< 1382400  5712 >,
 			< 1612800  6152 >,
-			< 1804800  7104 >;
+			< 1804800  7812 >;
 	};
 
 	devfreq-cpufreq {
@@ -809,13 +813,13 @@
 				<  800000  4101 >,	/* SVS+  */
 				< 1017600  5712 >,	/* NOM   */
 				< 1200000  6152 >,	/* TURBO */
-				< 1440000  7104 >;
+				< 1440000  7812 >;
 			cpu-to-dev-map-4 =
 				<  800000   805 >,	/* SVS   */
 				< 1200000  4101 >,	/* SVS+  */
 				< 1382400  5712 >,	/* NOM   */
 				< 1612800  6152 >,	/* TURBO */
-				< 1804800  7104 >;
+				< 1804800  7812 >;
 		};
 
 		mincpubw-cpufreq {
@@ -2062,7 +2066,7 @@
 		qcom,use-sw-aes-xts-algo;
 		qcom,use-sw-aes-ccm-algo;
 		qcom,use-sw-ahash-algo;
-		qcom,ce-opp-freq = <160000000>;
+		qcom,ce-opp-freq = <133333333>;
 	};
 
 	qcom_cedev: qcedev@720000 {
@@ -2087,7 +2091,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <160000000>;
+		qcom,ce-opp-freq = <133333333>;
 	};
 
 	qcom_seecom: qseecom@85e00000 {
@@ -2115,7 +2119,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <160000000>;
+		qcom,ce-opp-freq = <133333333>;
 	};
 
 	qcom,ipc_router {
@@ -3070,7 +3074,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <160000000>;
+		qcom,ce-opp-freq = <133333333>;
 	};
 
 };

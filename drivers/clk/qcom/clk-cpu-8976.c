@@ -171,7 +171,7 @@ static const char * const cpuss_parent_names_cci[] = {
 };
 
 /*
- * Early output of PLL: 1.7GHz default
+ * Early output of PLL: 1.95GHz default
  * Safely park at 1017.6MHz
  */
 static struct hfpll_data a72ss_hf_pll_data = {
@@ -196,7 +196,7 @@ static struct hfpll_data a72ss_hf_pll_data = {
 	.config_val = 0x04E0405D,
 	.max_rate = 2304000000UL,
 	.min_rate = 940800000UL,
-	.l_val = 0x5B,
+	.l_val = 0x66,
 	.l_park_val = 0x35,
 	.safe_parking_enabled = true,
 };

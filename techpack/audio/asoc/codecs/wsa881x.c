@@ -55,10 +55,10 @@ enum {
 	G_9DB,
 	G_7P5DB,
 	G_6DB,
-	G_4P5DB,
+	G_4P5DB = 0,
 	G_3DB,
 	G_1P5DB,
-	G_0DB = 0,
+	G_0DB,
 };
 
 enum {

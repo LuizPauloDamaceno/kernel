@@ -1298,7 +1298,7 @@ static const struct freq_tbl ftbl_crypto_clk_src[] = {
 	F(  50000000,P_GPLL0_OUT_MAIN,   16,    0,     0),
 	F(  80000000,P_GPLL0_OUT_MAIN,   10,    0,     0),
 	F( 100000000,P_GPLL0_OUT_MAIN,    8,    0,     0),
-	F( 133333333,P_GPLL0_OUT_MAIN,    6,    0,     0),
+	F( 200000000,P_GPLL0_OUT_MAIN,    4,    0,     0),
 	{ }
 };
 
@@ -1312,7 +1312,7 @@ static struct clk_rcg2 crypto_clk_src = {
 		.parent_names = gcc_parent_names_8,
 		.num_parents = ARRAY_SIZE(gcc_parent_names_8),
 		.ops = &clk_rcg2_ops,
-		VDD_DIG_FMAX_MAP2(LOWER, 80000000, NOMINAL, 133333333),
+		VDD_DIG_FMAX_MAP2(LOWER, 80000000, NOMINAL, 200000000),
 	},
 };
 

@@ -171,7 +171,7 @@ static const char * const cpuss_parent_names_cci[] = {
 };
 
 /*
- * Early output of PLL: 1.95GHz default
+ * Early output of PLL: 1.8GHz default
  * Safely park at 1017.6MHz
  */
 static struct hfpll_data a72ss_hf_pll_data = {
@@ -196,7 +196,7 @@ static struct hfpll_data a72ss_hf_pll_data = {
 	.config_val = 0x04E0405D,
 	.max_rate = 2304000000UL,
 	.min_rate = 940800000UL,
-	.l_val = 0x66,
+	.l_val = 0x5E,
 	.l_park_val = 0x35,
 	.safe_parking_enabled = true,
 };
@@ -1329,7 +1329,7 @@ static struct notifier_block clock_panic_notifier = {
 
 static const unsigned long cci_boot_rate = 614400000;
 static const unsigned long a53ss_boot_rate = 1401600000;
-static const unsigned long a72ss_boot_rate = 1958400000;
+static const unsigned long a72ss_boot_rate = 1804800000;
 static int clock_cpu_probe(struct platform_device *pdev)
 {
 	int i, speed_bin, version, rc, cpu, mux_id, clks_sz;

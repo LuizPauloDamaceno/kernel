@@ -485,20 +485,20 @@ module_param_named(
 	parallel_en, smbchg_parallel_en, int, 00600
 );
 
-static int smbchg_main_chg_fcc_percent = 40;
+static int smbchg_main_chg_fcc_percent = 50;
 module_param_named(
 	main_chg_fcc_percent, smbchg_main_chg_fcc_percent,
 	int, 00600
 );
 
-static int smbchg_main_chg_icl_percent = 60;
+static int smbchg_main_chg_icl_percent = 70;
 module_param_named(
 	main_chg_icl_percent, smbchg_main_chg_icl_percent,
 	int, 00600
 );
 
 #ifdef CONFIG_QPNP_SMBCHARGER_EXTENSION
-static int smbchg_default_hvdcp_icl_ma = 1500;
+static int smbchg_default_hvdcp_icl_ma = 2000;
 #else
 static int smbchg_default_hvdcp_icl_ma = 2000;
 #endif
@@ -515,9 +515,9 @@ module_param_named(
 
 
 #ifdef CONFIG_QPNP_SMBCHARGER_EXTENSION
-static int smbchg_default_dcp_icl_ma = 2000;
+static int smbchg_default_dcp_icl_ma = 2100;
 #else
-static int smbchg_default_dcp_icl_ma = 2000;
+static int smbchg_default_dcp_icl_ma = 2100;
 #endif
 module_param_named(
 	default_dcp_icl_ma, smbchg_default_dcp_icl_ma,
@@ -4825,7 +4825,7 @@ static int smbchg_set_optimal_charging_mode(struct smbchg_chip *chip, int type)
 }
 
 #define DEFAULT_SDP_MA		100
-#define DEFAULT_CDP_MA		2000
+#define DEFAULT_CDP_MA		2100
 static int smbchg_change_usb_supply_type(struct smbchg_chip *chip,
 						enum power_supply_type type)
 {
@@ -8246,7 +8246,7 @@ static const struct of_device_id smbchg_match_table[] = {
 };
 
 #define DC_MA_MIN 300
-#define DC_MA_MAX 2000
+#define DC_MA_MAX 2100
 #define OF_PROP_READ(chip, prop, dt_property, retval, optional)		\
 do {									\
 	if (retval)							\

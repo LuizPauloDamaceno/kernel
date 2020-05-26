@@ -52,10 +52,10 @@ enum {
 	G_13P5DB,
 	G_12DB,
 	G_10P5DB,
-	G_9DB,
+	G_9DB = 0,
 	G_7P5DB,
 	G_6DB,
-	G_4P5DB = 0,
+	G_4P5DB,
 	G_3DB,
 	G_1P5DB,
 	G_0DB,
@@ -1089,14 +1089,14 @@ static void wsa881x_init(struct snd_soc_codec *codec)
 	if (snd_soc_read(codec, WSA881X_OTP_REG_0))
 		snd_soc_update_bits(codec, WSA881X_BOOST_PRESET_OUT1,
 #if defined(CONFIG_ARCH_SONY_LOIRE) || defined(CONFIG_ARCH_SONY_TONE)
-				    0xF0, 0x64);
+				    0xF0, 0x37);
 #elif defined(CONFIG_ARCH_SONY_TAMA)
 				    0xF0, 0x7F);
 #else
-				    0xF0, 0x70);
+				    0xF0, 0x37);
 #endif
 	snd_soc_update_bits(codec, WSA881X_BOOST_PRESET_OUT2,
-			    0xF0, 0x64);
+			    0xF0, 0x37);
 	snd_soc_update_bits(codec, WSA881X_SPKR_DRV_EN, 0x08, 0x08);
 	snd_soc_update_bits(codec, WSA881X_BOOST_CURRENT_LIMIT,
 			    0x0F, 0x08);

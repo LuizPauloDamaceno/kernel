@@ -2066,7 +2066,7 @@
 		qcom,use-sw-aes-xts-algo;
 		qcom,use-sw-aes-ccm-algo;
 		qcom,use-sw-ahash-algo;
-		qcom,ce-opp-freq = <133333333>;
+		qcom,ce-opp-freq = <100000000>;
 	};
 
 	qcom_cedev: qcedev@720000 {
@@ -2091,7 +2091,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <133333333>;
+		qcom,ce-opp-freq = <100000000>;
 	};
 
 	qcom_seecom: qseecom@85e00000 {
@@ -2119,7 +2119,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <133333333>;
+		qcom,ce-opp-freq = <100000000>;
 	};
 
 	qcom,ipc_router {
@@ -3074,7 +3074,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <133333333>;
+		qcom,ce-opp-freq = <100000000>;
 	};
 
 };

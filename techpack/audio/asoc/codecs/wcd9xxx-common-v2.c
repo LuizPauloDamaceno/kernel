@@ -35,6 +35,7 @@ enum {
 	DAC_GAIN_M0P8DB,
 	DAC_GAIN_M1P2DB,
 	DAC_GAIN_M1P6DB,
+	DAC_GAIN_M1P8DB,
 };
 
 enum {
@@ -632,7 +633,7 @@ static void wcd_clsh_set_hph_mode(struct snd_soc_codec *codec,
 		break;
 	case CLS_H_HIFI:
 		val = 0x08;
-		gain = DAC_GAIN_M1P6DB;
+		gain = DAC_GAIN_M1P2DB;
 		ipeak = DELTA_I_150MA;
 		break;
 	case CLS_H_LOHIFI:
@@ -640,7 +641,7 @@ static void wcd_clsh_set_hph_mode(struct snd_soc_codec *codec,
 		if ((IS_CODEC_TYPE(wcd9xxx, WCD9335)) ||
 		    (IS_CODEC_TYPE(wcd9xxx, WCD9326))) {
 			val = 0x08;
-			gain = DAC_GAIN_M1P2DB;
+			gain = DAC_GAIN_M0P8DB;
 			ipeak = DELTA_I_200MA;
 		}
 		break;

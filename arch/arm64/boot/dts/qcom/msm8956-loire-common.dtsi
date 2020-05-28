@@ -744,7 +744,7 @@
 
 	qcom,bcl {
 		qcom,ibat-monitor {
-			qcom,soc-low-threshold = <5>;
+			qcom,soc-low-threshold = <10>;
 		};
 	};
 

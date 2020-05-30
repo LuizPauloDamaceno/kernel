@@ -1,0 +1,5 @@
+export CROSS_COMPILE=~/desenvolvimento/android/sony_aosp/kernel/cross_compilers/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+export CROSS_COMPILE_ARM32=~/desenvolvimento/android/sony_aosp/kernel/cross_compilers/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
+mkdir -p out
+make ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE aosp_loire_suzu_defconfig O=out
+make ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE -j4 O=out

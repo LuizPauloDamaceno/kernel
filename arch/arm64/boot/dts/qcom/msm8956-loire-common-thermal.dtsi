@@ -36,21 +36,21 @@
 		thermal-governor = "user_space";
 		trips {
 			c0_crit: c0-shutdown {
-				temperature = <88000>;
+				temperature = <85000>;
 				hysteresis = <1000>;
 				type = "critical";
 			};
 
 			c0_trip1: c0-trip1 {
-				temperature = <82000>;
-				hysteresis = <3000>;
+				temperature = <72500>;
+				hysteresis = <1500>;
 				type = "passive";
 				
 			};
 
 			c0_trip2: c0-trip2 {
-				temperature = <80000>;
-				hysteresis = <4000>;
+				temperature = <68000>;
+				hysteresis = <2000>;
 				type = "passive";
 				
 			};
@@ -117,21 +117,21 @@
 		thermal-governor = "step_wise";
 		trips {
 			c1_crit: c1-hot {
-				temperature = <88000>;
+				temperature = <85000>;
 				hysteresis = <1000>;
 				type = "hot";
 			};
 
 			c1_trip1: c1-trip1 {
-				temperature = <82000>;
+				temperature = <75000>;
 				hysteresis = <3000>;
 				type = "passive";
 				
 			};
 
 			c1_trip2: c1-trip2 {
-				temperature = <80000>;
-				hysteresis = <4000>;
+				temperature = <70000>;
+				hysteresis = <5000>;
 				type = "passive";
 				
 			};
@@ -214,7 +214,7 @@
 		thermal-governor = "step_wise";
 		trips {
 			gpu_trip1: gpu-trip1 {
-				temperature = <82000>;
+				temperature = <73500>;
 				hysteresis = <1000>;
 				type = "passive";
 			};
@@ -225,7 +225,7 @@
 				trip = <&gpu_trip1>;
 				cooling-device =
 					<&msm_gpu THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-2)>;
+						(THERMAL_MAX_LIMIT-3)>;
 			};
 		};
 	};
@@ -334,47 +334,47 @@
 			};
 
 			cpu_ct_c0_trip0: cpu-ct-c0-trip0 {
-				temperature = <59000>;
+				temperature = <60000>;
 				hysteresis = <2000>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip1: cpu-ct-c0-trip1 {
-				temperature = <58500>;
+				temperature = <56000>;
 				hysteresis = <300>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip2: cpu-ct-c0-trip2 {
-				temperature = <57800>;
+				temperature = <52000>;
 				hysteresis = <200>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip3: cpu-ct-c0-trip3 {
-				temperature = <56200>;
+				temperature = <51000>;
 				hysteresis = <200>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip4: cpu-ct-c0-trip4 {
-				temperature = <55000>;
+				temperature = <50000>;
 				hysteresis = <100>;
 				type = "passive";
 			};
 			cpu_ct_c0_trip5: cpu-ct-c0-trip5 {
-				temperature = <54800>;
+				temperature = <49000>;
 				hysteresis = <300>;
 				type = "passive";
 			};
 			cpu_ct_c1_trip0: cpu-ct-c1-trip0 {
-				temperature = <53000>;
+				temperature = <48000>;
 				hysteresis = <1000>;
 				type = "passive";
 			};
 			cpu_ct_c1_trip1: cpu-ct-c1-trip1 {
-				temperature = <52000>;
+				temperature = <46000>;
 				hysteresis = <300>;
 				type = "passive";
 			};
 			cpu_ct_c1_trip2: cpu-ct-c1-trip2 {
-				temperature = <50500>;
+				temperature = <46000>;
 				hysteresis = <1000>;
 				type = "passive";
 			};

@@ -498,9 +498,9 @@ module_param_named(
 );
 
 #ifdef CONFIG_QPNP_SMBCHARGER_EXTENSION
-static int smbchg_default_hvdcp_icl_ma = 2000;
+static int smbchg_default_hvdcp_icl_ma = 1400;
 #else
-static int smbchg_default_hvdcp_icl_ma = 2000;
+static int smbchg_default_hvdcp_icl_ma = 1400;
 #endif
 module_param_named(
 	default_hvdcp_icl_ma, smbchg_default_hvdcp_icl_ma,
@@ -8360,7 +8360,7 @@ err:
 }
 
 #define DEFAULT_VLED_MAX_UV		3500000
-#define DEFAULT_FCC_MA			2500
+#define DEFAULT_FCC_MA			2300
 #define DEFAULT_NUM_OF_PULSE_ALLOWED	20
 static int smb_parse_dt(struct smbchg_chip *chip)
 {

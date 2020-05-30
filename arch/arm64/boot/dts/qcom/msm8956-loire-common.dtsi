@@ -739,7 +739,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <100000000>;
+		qcom,ce-opp-freq = <160000000>;
 	};
 
 	qcom,bcl {
@@ -984,21 +984,21 @@
 	qcom,battery-data = <&loire_batterydata>;
 	qcom,hot-bat-decidegc = <550>;
 	qcom,warm-bat-decidegc = <450>;
-	qcom,cool-bat-decidegc = <100>;
-	qcom,cold-bat-decidegc = <50>;
+	qcom,cool-bat-decidegc = <250>;
+	qcom,cold-bat-decidegc = <150>;
 	qcom,cl-max-increment-deciperc = <0>;
-	qcom,cl-max-decrement-deciperc = <5>;
+	qcom,cl-max-decrement-deciperc = <1>;
 	qcom,cl-max-start-capacity = <40>;
 	qcom,hold-soc-while-full;
 	qcom,resume-soc-raw = <0xF3>;
-	qcom,fg-chg-iterm-ma = <120>;
-	qcom,fg-iterm-ma = <120>;
+	qcom,fg-chg-iterm-ma = <150>;
+	qcom,fg-iterm-ma = <150>;
 	qcom,thermal-coefficients = [EC 85 75 4A FC 35];
 	qcom,ext-sense-type;
 	qcom,fg-cutoff-voltage-mv = <3200>;
 	qcom,vbat-estimate-diff-mv = <200>;
 	qcom,cl-vbat-est-thr-uv = <300000>;
-	qcom,fg-cc-cv-threshold-mv = <4295>;
+	qcom,fg-cc-cv-threshold-mv = <4280>;
 };
 
 &qpnp_smbcharger {
@@ -1008,7 +1008,7 @@
 	qcom,usb_dp-vadc = <&pmi8950_vadc>;
 	qcom,usb_dm-vadc = <&pmi8950_vadc>;
 	qcom,usbin-vadc = <&pmi8950_vadc>;
-	qcom,float-voltage-mv = <4400>;
+	qcom,float-voltage-mv = <4350>;
 	qcom,precharging-timeout-mins = <24>;
 	qcom,charging-timeout-mins = <768>;
 	qcom,bmd-pin-src = "bpd_none";
@@ -1241,6 +1241,13 @@
 	qcom,platform-touch-int-gpio = <&msm_gpio 65 0>;
 	/delete-property/ qcom,platform-bklight-en-gpio;
 	/delete-property/ qcom,panel-mode-gpio;
+};
+
+&mdss_dsi0_pll {
+	qcom,dsi-pll-ssc-en;
+	qcom,ssc-frequency-hz = <30000>;
+	qcom,ssc-ppm = <5000>;
+	qcom,dsi-pll-ssc-mode = "down-spread";
 };
 
 &mdss_dsi1 {

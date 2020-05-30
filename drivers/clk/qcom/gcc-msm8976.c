@@ -1273,7 +1273,7 @@ static const struct freq_tbl ftbl_vfe1_clk_src[] = {
 	F( 266666667,P_GPLL0_OUT_MAIN,    3,    0,     0),
 	F( 300000000,     P_GPLL4_OUT,    4,    0,     0),
 	F( 320000000,P_GPLL0_OUT_MAIN,  2.5,    0,     0),
-	/*F( 400000000,P_GPLL0_OUT_MAIN,    2,    0,     0),*/
+	F( 400000000,P_GPLL0_OUT_MAIN,    2,    0,     0),
 	F( 466000000,     P_GPLL2_AUX,    2,    0,     0),
 	{ }
 };
@@ -1289,7 +1289,7 @@ static struct clk_rcg2 vfe1_clk_src = {
 		.num_parents = ARRAY_SIZE(gcc_parent_names_2),
 		.ops = &clk_rcg2_ops,
 		VDD_DIG_FMAX_MAP5(LOWER, 160000000, LOW, 300000000,
-		NOMINAL, 320000000, NOM_PLUS, 466000000,
+		NOMINAL, 320000000, NOM_PLUS, 400000000,
 		HIGH, 466000000),
 	},
 };
@@ -1297,7 +1297,7 @@ static struct clk_rcg2 vfe1_clk_src = {
 static const struct freq_tbl ftbl_crypto_clk_src[] = {
 	F(  50000000,P_GPLL0_OUT_MAIN,   16,    0,     0),
 	F(  80000000,P_GPLL0_OUT_MAIN,   10,    0,     0),
-	F( 100000000,P_GPLL0_OUT_MAIN,    8,    0,     0),
+	F( 160000000,P_GPLL0_OUT_MAIN,    5,    0,     0),
 	{ }
 };
 
@@ -1311,7 +1311,7 @@ static struct clk_rcg2 crypto_clk_src = {
 		.parent_names = gcc_parent_names_8,
 		.num_parents = ARRAY_SIZE(gcc_parent_names_8),
 		.ops = &clk_rcg2_ops,
-		VDD_DIG_FMAX_MAP2(LOWER, 80000000, NOMINAL, 100000000),
+		VDD_DIG_FMAX_MAP2(LOWER, 80000000, NOMINAL, 160000000),
 	},
 };
 
@@ -1542,8 +1542,8 @@ static const struct freq_tbl ftbl_gfx3d_clk_src[] = {
 	F( 400000000,P_GPLL0_OUT_MAIN,    2,    0,     0),
 	F( 432000000,   P_GPLL6_GFX3D,  2.5,    0,     0),
 	F( 480000000,   P_GPLL4_GFX3D,  2.5,    0,     0),
-	F( 540000000,   P_GPLL6_GFX3D,    2,    0,     0),
 	F( 600000000,   P_GPLL4_GFX3D,    2,    0,     0),
+	F( 720000000,   P_GPLL6_GFX3D,  1.5,    0,     0),
 	{ }
 };
 
@@ -1561,8 +1561,8 @@ static struct clk_init_data gfx3d_clk_params = {
 			SVS_PLUS,	360000000,
 			NOMINAL,	432000000,
 			TURBO,		480000000,
-			TURBO_L1,	540000000,
-			SUPER_TURBO,	600000000),
+			TURBO_L1,	600000000,
+			SUPER_TURBO,	720000000),
 };
 
 static struct clk_rcg2 gfx3d_clk_src = {
@@ -3266,7 +3266,7 @@ static struct clk_branch gcc_oxili_gfx3d_clk = {
 			.flags = CLK_SET_RATE_PARENT,
 			VDD_DIG_GFX_FMAX_MAP5(LOWER, 300000000, LOW, 360000000,
 				NOMINAL, 432000000, NOM_PLUS, 480000000,
-				HIGH, 600000000),
+				HIGH, 720000000),
 			.ops = &clk_branch2_ops,
 		},
 	},

@@ -171,7 +171,7 @@ static const char * const cpuss_parent_names_cci[] = {
 };
 
 /*
- * Early output of PLL: 1.8GHz default
+ * Early output of PLL: 1.95GHz default
  * Safely park at 1017.6MHz
  */
 static struct hfpll_data a72ss_hf_pll_data = {
@@ -194,9 +194,9 @@ static struct hfpll_data a72ss_hf_pll_data = {
 	.main_output_mask = BIT(0),
 	.vco_mode_masked = BIT(20),
 	.config_val = 0x04E0405D,
-	.max_rate = 2304000000UL,
+	.max_rate = 2131200000UL,
 	.min_rate = 940800000UL,
-	.l_val = 0x5E,
+	.l_val = 0x66,
 	.l_park_val = 0x35,
 	.safe_parking_enabled = true,
 };
@@ -226,7 +226,7 @@ static struct clk_fixed_factor a72ss_hf_pll_main = {
 	},
 };
 
-/* Early output of PLL: 1.4GHz default */
+/* Early output of PLL: 1.5GHz default */
 static struct hfpll_data a53ss_sr_pll_data = {
 	.mode_reg = 0x0,
 	.l_reg = 0x4,
@@ -248,9 +248,9 @@ static struct hfpll_data a53ss_sr_pll_data = {
 	.user_vco_val = 0x00141400,
 	.vco_mode_masked = BIT(20),
 	.min_rate = 652800000UL,
-	.max_rate = 1478400000UL,
+	.max_rate = 1574400000UL,
 	.low_vco_max_rate = 902400000UL,
-	.l_val = 0x49,
+	.l_val = 0x51,
 	.safe_parking_enabled = false,
 };
 
@@ -1328,8 +1328,8 @@ static struct notifier_block clock_panic_notifier = {
 };
 
 static const unsigned long cci_boot_rate = 614400000;
-static const unsigned long a53ss_boot_rate = 1401600000;
-static const unsigned long a72ss_boot_rate = 1804800000;
+static const unsigned long a53ss_boot_rate = 1555200000;
+static const unsigned long a72ss_boot_rate = 1958400000;
 static int clock_cpu_probe(struct platform_device *pdev)
 {
 	int i, speed_bin, version, rc, cpu, mux_id, clks_sz;

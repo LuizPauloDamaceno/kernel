@@ -49,8 +49,8 @@ static int msm_ter_mi2s_tx_ch = 1;
 static int msm_pri_mi2s_rx_ch = 1;
 static int msm_proxy_rx_ch = 2;
 static int msm_vi_feed_tx_ch = 2;
-static int mi2s_rx_bit_format = SNDRV_PCM_FORMAT_S16_LE;
-static int mi2s_rx_bits_per_sample = 16;
+static int mi2s_rx_bit_format = SNDRV_PCM_FORMAT_S24_LE;
+static int mi2s_rx_bits_per_sample = 24;
 static int mi2s_rx_sample_rate = SAMPLING_RATE_48KHZ;
 
 static atomic_t quat_mi2s_clk_ref;
@@ -300,7 +300,7 @@ static int msm_senary_tx_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
 	struct snd_interval *channels = hw_param_interval(params,
 					SNDRV_PCM_HW_PARAM_CHANNELS);
 
-	rate->min = rate->max = 48000;
+	rate->min = rate->max = 96000;
 	channels->min = channels->max = 2;
 
 	return 0;
@@ -317,7 +317,7 @@ static int msm_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
 					SNDRV_PCM_HW_PARAM_CHANNELS);
 
 	pr_debug("%s()\n", __func__);
-	rate->min = rate->max = 48000;
+	rate->min = rate->max = 96000;
 	channels->min = channels->max = 2;
 
 	return 0;
@@ -352,7 +352,7 @@ static int msm_proxy_rx_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
 	if (channels->max < 2)
 		channels->min = channels->max = 2;
 	channels->min = channels->max = msm_proxy_rx_ch;
-	rate->min = rate->max = 48000;
+	rate->min = rate->max = 96000;
 	return 0;
 }
 
@@ -362,7 +362,7 @@ static int msm_proxy_tx_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
 	struct snd_interval *rate = hw_param_interval(params,
 					SNDRV_PCM_HW_PARAM_RATE);
 
-	rate->min = rate->max = 48000;
+	rate->min = rate->max = 96000;
 	return 0;
 }
 
@@ -681,11 +681,11 @@ static int mi2s_rx_bit_format_put(struct snd_kcontrol *kcontrol,
 		mi2s_rx_bits_per_sample = 32;
 		break;
 	case 1:
+	default:
 		mi2s_rx_bit_format = SNDRV_PCM_FORMAT_S24_LE;
-		mi2s_rx_bits_per_sample = 32;
+		mi2s_rx_bits_per_sample = 24;
 		break;
 	case 0:
-	default:
 		mi2s_rx_bit_format = SNDRV_PCM_FORMAT_S16_LE;
 		mi2s_rx_bits_per_sample = 16;
 		break;

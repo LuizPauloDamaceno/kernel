@@ -422,11 +422,11 @@ static int mi2s_rx_bit_format_get(struct snd_kcontrol *kcontrol,
 		break;
 
 	case SNDRV_PCM_FORMAT_S24_LE:
+	default:
 		ucontrol->value.integer.value[0] = 1;
 		break;
 
 	case SNDRV_PCM_FORMAT_S16_LE:
-	default:
 		ucontrol->value.integer.value[0] = 0;
 		break;
 	}
@@ -446,10 +446,10 @@ static int mi2s_rx_bit_format_put(struct snd_kcontrol *kcontrol,
 		mi2s_rx_bit_format = SNDRV_PCM_FORMAT_S24_3LE;
 		break;
 	case 1:
+	default:
 		mi2s_rx_bit_format = SNDRV_PCM_FORMAT_S24_LE;
 		break;
 	case 0:
-	default:
 		mi2s_rx_bit_format = SNDRV_PCM_FORMAT_S16_LE;
 		break;
 	}
@@ -616,11 +616,11 @@ static int slim5_rx_bit_format_get(struct snd_kcontrol *kcontrol,
 		break;
 
 	case SNDRV_PCM_FORMAT_S24_LE:
+	default:
 		ucontrol->value.integer.value[0] = 1;
 		break;
 
 	case SNDRV_PCM_FORMAT_S16_LE:
-	default:
 		ucontrol->value.integer.value[0] = 0;
 		break;
 	}
@@ -640,10 +640,10 @@ static int slim5_rx_bit_format_put(struct snd_kcontrol *kcontrol,
 		slim5_rx_bit_format = SNDRV_PCM_FORMAT_S24_3LE;
 		break;
 	case 1:
+	default:
 		slim5_rx_bit_format = SNDRV_PCM_FORMAT_S24_LE;
 		break;
 	case 0:
-	default:
 		slim5_rx_bit_format = SNDRV_PCM_FORMAT_S16_LE;
 		break;
 	}
@@ -659,11 +659,11 @@ static int slim6_rx_bit_format_get(struct snd_kcontrol *kcontrol,
 		break;
 
 	case SNDRV_PCM_FORMAT_S24_LE:
+	default:
 		ucontrol->value.integer.value[0] = 1;
 		break;
 
 	case SNDRV_PCM_FORMAT_S16_LE:
-	default:
 		ucontrol->value.integer.value[0] = 0;
 		break;
 	}
@@ -683,10 +683,10 @@ static int slim6_rx_bit_format_put(struct snd_kcontrol *kcontrol,
 		slim6_rx_bit_format = SNDRV_PCM_FORMAT_S24_3LE;
 		break;
 	case 1:
+	default:
 		slim6_rx_bit_format = SNDRV_PCM_FORMAT_S24_LE;
 		break;
 	case 0:
-	default:
 		slim6_rx_bit_format = SNDRV_PCM_FORMAT_S16_LE;
 		break;
 	}
@@ -759,11 +759,11 @@ static int slim0_rx_bit_format_get(struct snd_kcontrol *kcontrol,
 		break;
 
 	case SNDRV_PCM_FORMAT_S24_LE:
+	default:
 		ucontrol->value.integer.value[0] = 1;
 		break;
 
 	case SNDRV_PCM_FORMAT_S16_LE:
-	default:
 		ucontrol->value.integer.value[0] = 0;
 		break;
 	}
@@ -783,10 +783,10 @@ static int slim0_rx_bit_format_put(struct snd_kcontrol *kcontrol,
 		slim0_rx_bit_format = SNDRV_PCM_FORMAT_S24_3LE;
 		break;
 	case 1:
+	default:
 		slim0_rx_bit_format = SNDRV_PCM_FORMAT_S24_LE;
 		break;
 	case 0:
-	default:
 		slim0_rx_bit_format = SNDRV_PCM_FORMAT_S16_LE;
 		break;
 	}
@@ -854,10 +854,10 @@ static int slim0_tx_bit_format_get(struct snd_kcontrol *kcontrol,
 		ucontrol->value.integer.value[0] = 2;
 		break;
 	case SNDRV_PCM_FORMAT_S24_LE:
+	default:
 		ucontrol->value.integer.value[0] = 1;
 		break;
 	case SNDRV_PCM_FORMAT_S16_LE:
-	default:
 		ucontrol->value.integer.value[0] = 0;
 		break;
 	}

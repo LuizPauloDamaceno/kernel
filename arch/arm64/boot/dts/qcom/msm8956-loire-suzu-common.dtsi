@@ -57,13 +57,13 @@
 };
 
 &qpnp_smbcharger {
-	qcom,fastchg-current-ma = <2500>;
+	qcom,fastchg-current-ma = <2400>;
 	somc,usb-5v-current-max = <2100>;
 	somc,usb-9v-current-max = <2000>;
 	qcom,float-voltage-comp = <0x14>;
-	somc,fastchg-warm-current-ma = <400>;
-	somc,fastchg-cool-current-ma = <250>;
-	somc,thermal-engine-fastchg-current = <2500 2400 2300 2100 2000 1800 1600 1500 1200 1000 900 700 500 300 300>;
+	somc,fastchg-warm-current-ma = <1000>;
+	somc,fastchg-cool-current-ma = <500>;
+	somc,thermal-engine-fastchg-current = <2400 2300 2100 2000 1800 1600 1500 1400 1200 1000 900 700 500 300 300>;
 	somc,thermal-mitigation-usb-9v = <2000 1600 1400 1200 1000 1000 1000 1000 1000 900 700 500 300 300 300>;
 	somc,thermal-mitigation-usb-8v = <2000 1600 1400 1200 1000 1000 1000 1000 1000 900 700 500 300 300 300>;
 	somc,thermal-mitigation-usb-7v = <2000 1600 1400 1200 1000 1000 1000 1000 1000 900 700 500 300 300 300>;

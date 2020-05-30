@@ -378,38 +378,74 @@
 				hysteresis = <1000>;
 				type = "passive";
 			};
-
+			
 			charger_trip1: charger-trip1 {
-				temperature = <59000>;
+				temperature = <57000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};
 			charger_trip2: charger-trip2 {
-				temperature = <52500>;
+				temperature = <56000>;
 				hysteresis = <300>;
 				type = "passive";
 			};
 			charger_trip3: charger-trip3 {
-				temperature = <51600>;
+				temperature = <55000>;
 				hysteresis = <400>;
 				type = "passive";
 			};
 			charger_trip4: charger-trip4 {
-				temperature = <51000>;
+				temperature = <54000>;
 				hysteresis = <200>;
 				type = "passive";
 			};
 			charger_trip5: charger-trip5 {
-				temperature = <50000>;
+				temperature = <53000>;
 				hysteresis = <200>;
 				type = "passive";
 			};
 			charger_trip6: charger-trip6 {
-				temperature = <49000>;
+				temperature = <52000>;
 				hysteresis = <400>;
 				type = "passive";
 			};
 
+			charger_trip7: charger-trip1 {
+				temperature = <51000>;
+				hysteresis = <3000>;
+				type = "passive";
+			};
+			charger_trip8: charger-trip2 {
+				temperature = <50000>;
+				hysteresis = <300>;
+				type = "passive";
+			};
+			charger_trip9: charger-trip3 {
+				temperature = <49000>;
+				hysteresis = <400>;
+				type = "passive";
+			};
+			charger_trip10: charger-trip4 {
+				temperature = <48000>;
+				hysteresis = <200>;
+				type = "passive";
+			};
+			charger_trip11: charger-trip5 {
+				temperature = <47000>;
+				hysteresis = <200>;
+				type = "passive";
+			};
+			charger_trip12: charger-trip6 {
+				temperature = <46000>;
+				hysteresis = <400>;
+				type = "passive";
+			};
+			
+			charger_trip13: charger-trip6 {
+				temperature = <45000>;
+				hysteresis = <400>;
+				type = "passive";
+			};
 
 			modem_trip0: modem-trip0 {
 				temperature = <50000>;
@@ -623,25 +659,53 @@
 			/* Battery charging current limit */
 			charger_lvl1 {
 				trip = <&charger_trip1>;
-				cooling-device = <&qpnp_smbcharger 13 13>;
+				cooling-device = <&qpnp_smbcharger 14 14>;
 			};
 			charger_lvl2 {
+				trip = <&charger_trip1>;
+				cooling-device = <&qpnp_smbcharger 13 13>;
+			};
+			charger_lvl3 {
 				trip = <&charger_trip2>;
 				cooling-device = <&qpnp_smbcharger 12 12>;
 			};
-			charger_lvl3 {
+			charger_lvl4 {
+				trip = <&charger_trip2>;
+				cooling-device = <&qpnp_smbcharger 11 11>;
+			};
+			charger_lvl5 {
+				trip = <&charger_trip2>;
+				cooling-device = <&qpnp_smbcharger 10 10>;
+			};
+			charger_lvl6 {
 				trip = <&charger_trip3>;
 				cooling-device = <&qpnp_smbcharger 9 9>;
 			};
-			charger_lvl4 {
+			charger_lvl7 {
 				trip = <&charger_trip4>;
 				cooling-device = <&qpnp_smbcharger 8 8>;
 			};
-			charger_lvl5 {
+			charger_lvl8 {
+				trip = <&charger_trip4>;
+				cooling-device = <&qpnp_smbcharger 7 7>;
+			};
+			charger_lvl9 {
+				trip = <&charger_trip4>;
+				cooling-device = <&qpnp_smbcharger 6 6>;
+			};
+			charger_lvl10 {
+				trip = <&charger_trip4>;
+				cooling-device = <&qpnp_smbcharger 5 5>;
+			};
+			charger_lvl11 {
+				trip = <&charger_trip4>;
+				cooling-device = <&qpnp_smbcharger 4 4>;
+			};
+			charger_lvl12 {
 				trip = <&charger_trip5>;
 				cooling-device = <&qpnp_smbcharger 3 3>;
 			};
-			charger_lvl6 {
+			charger_lvl13 {
 				trip = <&charger_trip6>;
 				cooling-device = <&qpnp_smbcharger 2 2>;
 			};

@@ -320,7 +320,7 @@
 				label = "rgb";
 				linux,name = "led:rgb_blue";
 				somc,max_single_current_uA = <12000>;
-				somc,max_mix_current_uA = <5000>;
+				somc,max_mix_current_uA = <6000>;
 				somc,pattern_frame_mask = <0>;
 				somc,pattern_frame_delay = <0>;
 				linux,default-trigger = "none";
@@ -328,8 +328,8 @@
 			somc,rgb_red {
 				label = "rgb";
 				linux,name = "led:rgb_red";
-				somc,max_single_current_uA = <4000>;
-				somc,max_mix_current_uA = <4000>;
+				somc,max_single_current_uA = <6000>;
+				somc,max_mix_current_uA = <3000>;
 				somc,pattern_frame_mask = <0>;
 				somc,pattern_frame_delay = <0>;
 				linux,default-trigger = "none";
@@ -337,8 +337,8 @@
 			somc,rgb_green {
 				label = "rgb";
 				linux,name = "led:rgb_green";
-				somc,max_single_current_uA = <8000>;
-				somc,max_mix_current_uA = <8000>;
+				somc,max_single_current_uA = <10000>;
+				somc,max_mix_current_uA = <5000>;
 				somc,pattern_frame_mask = <0>;
 				somc,pattern_frame_delay = <0>;
 				linux,default-trigger = "none";
@@ -739,7 +739,7 @@
 			 <&clock_gcc GCC_CRYPTO_AXI_CLK>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <160000000>;
+		qcom,ce-opp-freq = <100000000>;
 	};
 
 	qcom,bcl {
@@ -982,23 +982,23 @@
 
 &qpnp_fg {
 	qcom,battery-data = <&loire_batterydata>;
-	qcom,hot-bat-decidegc = <470>;
-	qcom,warm-bat-decidegc = <420>;
+	qcom,hot-bat-decidegc = <500>;
+	qcom,warm-bat-decidegc = <450>;
 	qcom,cool-bat-decidegc = <200>;
-	qcom,cold-bat-decidegc = <120>;
-	qcom,cl-max-increment-deciperc = <0>;
+	qcom,cold-bat-decidegc = <100>;
 	qcom,cl-max-decrement-deciperc = <5>;
-	qcom,cl-max-start-capacity = <40>;
+	qcom,cl-max-start-capacity = <25>;
 	qcom,hold-soc-while-full;
 	qcom,resume-soc-raw = <0xF3>;
-	qcom,fg-chg-iterm-ma = <150>;
-	qcom,fg-iterm-ma = <150>;
+	qcom,aging-eval-current-ma = <350>;
+	qcom,fg-chg-iterm-ma = <100>;
+	qcom,fg-iterm-ma = <100>;
 	qcom,thermal-coefficients = [EC 85 75 4A FC 35];
 	qcom,ext-sense-type;
 	qcom,fg-cutoff-voltage-mv = <3200>;
-	qcom,vbat-estimate-diff-mv = <200>;
+	qcom,vbat-estimate-diff-mv = <120>;
 	qcom,cl-vbat-est-thr-uv = <300000>;
-	qcom,fg-cc-cv-threshold-mv = <4280>;
+	qcom,fg-cc-cv-threshold-mv = <4340>;
 };
 
 &qpnp_smbcharger {

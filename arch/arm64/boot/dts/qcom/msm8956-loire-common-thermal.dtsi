@@ -57,30 +57,30 @@
 		};
 
 		cooling-maps {
-			/* Throttle from FMAX to 806.4MHz */
+			/* Throttle from FMAX to 1200MHz */
 			cpu0_cdev1 {
 				trip = <&c0_trip1>;
 				cooling-device =
 					<&CPU0 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-3)>;
+						(THERMAL_MAX_LIMIT-4)>;
 			};
 			cpu1_cdev1 {
 				trip = <&c0_trip1>;
 				cooling-device =
 					<&CPU1 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-3)>;
+						(THERMAL_MAX_LIMIT-4)>;
 			};
 			cpu2_cdev1 {
 				trip = <&c0_trip1>;
 				cooling-device =
 					<&CPU2 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-3)>;
+						(THERMAL_MAX_LIMIT-4)>;
 			};
 			cpu3_cdev1 {
 				trip = <&c0_trip1>;
 				cooling-device =
 					<&CPU3 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-3)>;
+						(THERMAL_MAX_LIMIT-4)>;
 			};
 
 			/* Throttle from FMAX to 1305.6MHz */
@@ -88,25 +88,25 @@
 				trip = <&c0_trip2>;
 				cooling-device =
 					<&CPU0 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 			cpu1_cdev2 {
 				trip = <&c0_trip2>;
 				cooling-device =
 					<&CPU1 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 			cpu2_cdev2 {
 				trip = <&c0_trip2>;
 				cooling-device =
 					<&CPU2 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 			cpu3_cdev2 {
 				trip = <&c0_trip2>;
 				cooling-device =
 					<&CPU3 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 		};
 	};
@@ -152,57 +152,57 @@
 						THERMAL_MAX_LIMIT>;
 			};
 
-			/* Throttle C1 from FMAX to 800.2MHz */
+			/* Throttle C1 from FMAX to 1200MHz */
 			/* Throttle C0 from FMAX to 1305.6MHz */
 			cpu4_cdev1 {
 				trip = <&c1_trip1>;
 				cooling-device =
 					<&CPU4 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-2)>;
+						(THERMAL_MAX_LIMIT-3)>;
 			};
 			cpu5_cdev1 {
 				trip = <&c1_trip1>;
 				cooling-device =
 					<&CPU4 THERMAL_MAX_LIMIT
-						(THERMAL_MAX_LIMIT-2)>;
+						(THERMAL_MAX_LIMIT-3)>;
 			};
 			cpu0_cdev10 {
 				trip = <&c1_trip1>;
 				cooling-device =
 					<&CPU0 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 			cpu1_cdev10 {
 				trip = <&c1_trip1>;
 				cooling-device =
 					<&CPU1 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 			cpu2_cdev10 {
 				trip = <&c1_trip1>;
 				cooling-device =
 					<&CPU2 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 			cpu3_cdev10{
 				trip = <&c1_trip1>;
 				cooling-device =
 					<&CPU3 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-6)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 
-			/* Throttle from FMAX to 1200.8MHz */
+			/* Throttle from FMAX to 1612.8MHz */
 			cpu4_cdev2 {
 				trip = <&c1_trip2>;
 				cooling-device =
 					<&CPU4 THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-7)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 			cpu5_cdev2 {
 				trip = <&c1_trip2>;
 				cooling-device =
 					<&CPU5 THERMAL_MAX_LIMIT
-						(THERMAL_MAX_LIMIT-7)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 		};
 	};
@@ -214,18 +214,18 @@
 		thermal-governor = "step_wise";
 		trips {
 			gpu_trip1: gpu-trip1 {
-				temperature = <73500>;
+				temperature = <70000>;
 				hysteresis = <1000>;
 				type = "passive";
 			};
 		};
 		cooling-maps {
-			/* Throttle to SVS 300MHz */
+			/* Throttle to SVS 600MHz */
 			gpu_cdev1 {
 				trip = <&gpu_trip1>;
 				cooling-device =
 					<&msm_gpu THERMAL_NO_LIMIT
-						(THERMAL_MAX_LIMIT-3)>;
+						(THERMAL_MAX_LIMIT-5)>;
 			};
 		};
 	};
@@ -465,29 +465,29 @@
 		};
 
 		cooling-maps {
-			/* Throttle from FMAX to 400MHz */
+			/* Throttle from FMAX to 800MHz */
 			skin0_cpu0 {
 				trip = <&cpu_ct_c0_trip0>;
 				cooling-device = <&CPU0 THERMAL_NO_LIMIT
-							(THERMAL_MAX_LIMIT-1)>;
+							(THERMAL_MAX_LIMIT-3)>;
 			};
 			skin0_cpu1 {
 				trip = <&cpu_ct_c0_trip0>;
 				cooling-device = <&CPU1 THERMAL_NO_LIMIT
-							(THERMAL_MAX_LIMIT-1)>;
+							(THERMAL_MAX_LIMIT-3)>;
 			};
 			skin0_cpu2 {
 				trip = <&cpu_ct_c0_trip0>;
 				cooling-device = <&CPU2 THERMAL_NO_LIMIT
-							(THERMAL_MAX_LIMIT-1)>;
+							(THERMAL_MAX_LIMIT-3)>;
 			};
 			skin0_cpu3 {
 				trip = <&cpu_ct_c0_trip0>;
 				cooling-device = <&CPU3 THERMAL_NO_LIMIT
-							(THERMAL_MAX_LIMIT-1)>;
+							(THERMAL_MAX_LIMIT-3)>;
 			};
 
-			/* Throttle from FMAX to 691.2MHz */
+			/* Throttle from FMAX to 600MHz */
 			skin1_cpu0 {
 				trip = <&cpu_ct_c0_trip1>;
 				cooling-device = <&CPU0 THERMAL_NO_LIMIT
@@ -509,7 +509,7 @@
 							(THERMAL_MAX_LIMIT-2)>;
 			};
 
-			/* Throttle from FMAX to 806.4MHz */
+			/* Throttle from FMAX to 800MHz */
 			skin2_cpu0 {
 				trip = <&cpu_ct_c0_trip2>;
 				cooling-device = <&CPU0 THERMAL_NO_LIMIT
@@ -531,7 +531,7 @@
 							(THERMAL_MAX_LIMIT-3)>;
 			};
 
-			/* Throttle from FMAX to 1017.6MHz */
+			/* Throttle from FMAX to 1200MHz */
 			skin3_cpu0 {
 				trip = <&cpu_ct_c0_trip3>;
 				cooling-device = <&CPU0 THERMAL_NO_LIMIT
@@ -554,7 +554,7 @@
 			};
 
 
-			/* Throttle from FMAX to 1190.4MHz */
+			/* Throttle from FMAX to 1305.6MHz */
 			skin4_cpu0 {
 				trip = <&cpu_ct_c0_trip4>;
 				cooling-device = <&CPU0 THERMAL_NO_LIMIT
@@ -576,7 +576,7 @@
 							(THERMAL_MAX_LIMIT-5)>;
 			};
 
-			/* Throttle from FMAX to 1305.6MHz */
+			/* Throttle from FMAX to 1382.4MHz */
 			skin4_cpu0 {
 				trip = <&cpu_ct_c0_trip4>;
 				cooling-device = <&CPU0 THERMAL_NO_LIMIT

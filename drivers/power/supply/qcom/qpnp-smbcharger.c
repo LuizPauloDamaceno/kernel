@@ -485,22 +485,22 @@ module_param_named(
 	parallel_en, smbchg_parallel_en, int, 00600
 );
 
-static int smbchg_main_chg_fcc_percent = 50;
+static int smbchg_main_chg_fcc_percent = 40;
 module_param_named(
 	main_chg_fcc_percent, smbchg_main_chg_fcc_percent,
 	int, 00600
 );
 
-static int smbchg_main_chg_icl_percent = 70;
+static int smbchg_main_chg_icl_percent = 60;
 module_param_named(
 	main_chg_icl_percent, smbchg_main_chg_icl_percent,
 	int, 00600
 );
 
 #ifdef CONFIG_QPNP_SMBCHARGER_EXTENSION
-static int smbchg_default_hvdcp_icl_ma = 1400;
+static int smbchg_default_hvdcp_icl_ma = 1700;
 #else
-static int smbchg_default_hvdcp_icl_ma = 1400;
+static int smbchg_default_hvdcp_icl_ma = 1700;
 #endif
 module_param_named(
 	default_hvdcp_icl_ma, smbchg_default_hvdcp_icl_ma,
@@ -515,9 +515,9 @@ module_param_named(
 
 
 #ifdef CONFIG_QPNP_SMBCHARGER_EXTENSION
-static int smbchg_default_dcp_icl_ma = 2100;
+static int smbchg_default_dcp_icl_ma = 2300;
 #else
-static int smbchg_default_dcp_icl_ma = 2100;
+static int smbchg_default_dcp_icl_ma = 2300;
 #endif
 module_param_named(
 	default_dcp_icl_ma, smbchg_default_dcp_icl_ma,
@@ -1486,6 +1486,7 @@ static const int usb_ilim_ma_table_8994[] = {
 	1450,
 	1500,
 	1600,
+	1700,
 	1800,
 	1850,
 	1880,
@@ -1496,6 +1497,7 @@ static const int usb_ilim_ma_table_8994[] = {
 	2000,
 	2050,
 	2100,
+	2200,
 	2300,
 	2400,
 	2500,
@@ -1675,7 +1677,7 @@ static int smbchg_charging_en(struct smbchg_chip *chip, bool en)
 #endif
 #define CURRENT_500_MA		500
 #define CURRENT_900_MA		900
-#define CURRENT_2100_MA		2100
+#define CURRENT_2300_MA		2300
 #define SUSPEND_CURRENT_MA	2
 #define ICL_OVERRIDE_BIT	BIT(2)
 static int smbchg_usb_suspend(struct smbchg_chip *chip, bool suspend)
@@ -2036,7 +2038,7 @@ static int smbchg_set_usb_current_max(struct smbchg_chip *chip,
 		break;
 #endif
 	case POWER_SUPPLY_TYPE_USB_CDP:
-		if (current_ma < CURRENT_2100_MA) {
+		if (current_ma < CURRENT_2300_MA) {
 			/* use override for CDP */
 			rc = smbchg_masked_write(chip,
 					chip->usb_chgpth_base + CMD_IL,
@@ -4825,7 +4827,7 @@ static int smbchg_set_optimal_charging_mode(struct smbchg_chip *chip, int type)
 }
 
 #define DEFAULT_SDP_MA		100
-#define DEFAULT_CDP_MA		2100
+#define DEFAULT_CDP_MA		2300
 static int smbchg_change_usb_supply_type(struct smbchg_chip *chip,
 						enum power_supply_type type)
 {
@@ -8246,7 +8248,7 @@ static const struct of_device_id smbchg_match_table[] = {
 };
 
 #define DC_MA_MIN 300
-#define DC_MA_MAX 2100
+#define DC_MA_MAX 2300
 #define OF_PROP_READ(chip, prop, dt_property, retval, optional)		\
 do {									\
 	if (retval)							\

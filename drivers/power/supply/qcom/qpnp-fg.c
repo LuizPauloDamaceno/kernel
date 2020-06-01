@@ -300,7 +300,7 @@ module_param_named(
 	battery_type, fg_batt_type, charp, 00600
 );
 
-static int fg_sram_update_period_ms = 2000;
+static int fg_sram_update_period_ms = 1000;
 module_param_named(
 	sram_update_period_ms, fg_sram_update_period_ms, int, 00600
 );
@@ -3159,7 +3159,7 @@ fail:
 	return rc;
 }
 
-#define FG_CAP_LEARNING_INTERVAL_NS	30000000000
+#define FG_CAP_LEARNING_INTERVAL_NS	10000000000
 static enum alarmtimer_restart fg_cap_learning_alarm_cb(struct alarm *alarm,
 							ktime_t now)
 {

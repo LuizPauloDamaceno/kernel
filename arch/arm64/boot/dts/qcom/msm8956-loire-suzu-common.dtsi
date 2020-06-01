@@ -38,7 +38,7 @@
 	/* I2C : BLSP6 */
 	i2c@7af6000 { /* BLSP2 QUP1 */
 		as3668@42 {
-			somc,max_current_uA = <0 12000 4000 5000 5000 8000 8000>;
+			somc,max_current_uA = <0 12000 6000 6000 3000 10000 5000>;
 		};
 	};
 };
@@ -52,23 +52,31 @@
 
 &qpnp_fg {
 	qcom,battery-data = <&loire_suzu_batterydata>;
-	qcom,cold-hot-jeita-hysteresis = <12 47>;
-	somc,cool-warm-jeita-hysteresis = <20 42>;
+	qcom,cold-hot-jeita-hysteresis = <10 50>;
+	somc,cool-warm-jeita-hysteresis = <20 45>;
+	qcom,bcl-lm-threshold-ma = <1000>;
+	qcom,bcl-mh-threshold-ma = <2000>;
+	qcom,cl-max-increment-deciperc = <5>;
+	qcom,cycle-counter-en;
+	qcom,capacity-learning-on;
+	qcom,esr-pulse-tuning-en;
+	qcom,irq-volt-empty-mv = <3300>;
 };
 
 &qpnp_smbcharger {
-	qcom,fastchg-current-ma = <2300>;
-	somc,usb-5v-current-max = <2100>;
-	somc,usb-9v-current-max = <1400>;
+	qcom,autoadjust-vfloat;
+	qcom,fastchg-current-ma = <2400>;
+	somc,usb-5v-current-max = <2300>;
+	somc,usb-9v-current-max = <1700>;
 	qcom,float-voltage-comp = <0x14>;
-	somc,fastchg-warm-current-ma = <700>;
-	somc,fastchg-cool-current-ma = <500>;
-	somc,thermal-engine-fastchg-current = <2300 2100 2050 2000 1950 1880 1600 1500 1450 1400 1200 1100 1000 700 450>;
-	somc,thermal-mitigation-usb-9v = <1400 1200 1200 1200 1000 1000 1000 1000 1000 900 700 500 300 300 300>;
-	somc,thermal-mitigation-usb-8v = <1500 1400 1200 1200 1000 1000 1000 1000 1000 900 700 500 300 300 300>;
-	somc,thermal-mitigation-usb-7v = <1600 1500 1400 1200 1000 1000 1000 1000 1000 900 700 500 300 300 300>;
-	somc,thermal-mitigation-usb-6v = <1800 1600 1500 1400 1200 1000 1000 1000 1000 900 700 500 300 300 300>;
-	somc,thermal-mitigation-usb-5v = <2100 2050 2000 1850 1600 1500 1500 1500 1200 900 700 500 300 300 300>;
+	somc,fastchg-warm-current-ma = <1000>;
+	somc,fastchg-cool-current-ma = <700>;
+	somc,thermal-engine-fastchg-current = <2400 2200 2100 2000 1850 1700 1500 1400 1200 1100 1100 1000 1000 700 450>;
+	somc,thermal-mitigation-usb-9v = <1700 1500 1400 1200 1000 1000 1000 1000 1000 900 700 500 450 300 300>;
+	somc,thermal-mitigation-usb-8v = <1600 1400 1200 1200 1000 1000 1000 1000 1000 900 700 500 450 300 300>;
+	somc,thermal-mitigation-usb-7v = <1500 1500 1400 1200 1000 1000 1000 1000 1000 900 700 500 450 300 300>;
+	somc,thermal-mitigation-usb-6v = <1400 1400 1200 1200 1200 1000 1000 1000 1000 900 700 500 450 300 300>;
+	somc,thermal-mitigation-usb-5v = <2300 2200 2100 2000 1800 1600 1400 1200 1200 1100 900 700 500 450 300>;
 	somc,limit-usb-5v-level = <15>;
 };
 
